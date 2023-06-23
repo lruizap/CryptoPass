@@ -1,5 +1,6 @@
-from script.passwordGenerator import passwordGenerator
+from passwordGenerator import passwordGenerator
 import tkinter as tk
+
 
 def PG_App(length: int, symbols: bool, uppercase: bool, quantity: int):
 
@@ -24,7 +25,7 @@ ventana.configure(background="#404040")
 
 # Establecer el icono de la aplicación
 # Reemplaza "ruta_del_archivo.ico" con la ruta de tu archivo de icono
-ventana.iconbitmap("./images/key-fhd.ico")
+ventana.iconbitmap("../images/key-fhd.ico")
 
 # Crear las casillas de verificación
 checkbox1 = tk.BooleanVar()
@@ -36,7 +37,7 @@ frame.pack(fill=tk.NONE)
 
 # Cargar la imagen
 # Reemplaza "ruta_de_la_imagen.png" con la ruta de tu imagen
-imagen = tk.PhotoImage(file="./images/key-fhd.png")
+imagen = tk.PhotoImage(file="../images/key-fhd.png")
 
 # Redimensionar la imagen a 64x64 píxeles
 # Cambia el valor 4 según sea necesario
