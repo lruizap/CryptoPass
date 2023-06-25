@@ -1,3 +1,4 @@
+from passwordGenerator import passwordGenerator
 from customtkinter import CTk, CTkFrame, CTkEntry, CTkLabel, CTkButton, CTkCheckBox, CTkImage
 from PIL import Image
 import tkinter as tk
@@ -7,6 +8,58 @@ import tkinter as tk
 c_negro = "#010101"
 c_amarillo = "#F6BB43"
 c_azul = "#427EF6"
+
+""""// Funciones // """
+
+
+def PG_App(length: int, symbols: bool, uppercase: bool, quantity: int):
+
+    ventana = CTk()
+    ventana.minsize(480, 500)
+    ventana.config(bg=c_negro)
+    ventana.resizable(False, False)
+    ventana.title("Contraseñas")
+
+    frame2 = CTkFrame(ventana, fg_color=c_negro,
+                      border_color="#427EF6", border_width=2)
+    frame2.grid(column=0, row=0, sticky='nsew', padx=50, pady=50)
+
+    # frame2.columnconfigure(0, weight=1)
+    # frame2.rowconfigure(0, weight=1)
+
+    # # Dentro de la ventana principal configuramos la posición del frame
+    # ventana.columnconfigure(0, weight=1)
+    # ventana.rowconfigure(0, weight=1)
+
+    # Crear un Text widget con scrollbar
+    scrollbar = tk.Scrollbar(frame2)
+    textarea = tk.Text(frame2, font=('Arial', 12), yscrollcommand=scrollbar.set, fg="white", bg=c_negro,
+                       relief="solid", borderwidth=2, highlightthickness=2, padx=4, pady=4)
+    textarea.config(highlightbackground="blue")
+
+    # Ubicar el Text widget y scrollbar en la ventana
+    textarea.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+    scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+
+    for i in range(quantity):
+        password = f"🔑 Contraseña número {i+1}  ---->  " + passwordGenerator(
+            length=length, symbols=symbols, uppercase=uppercase)
+        textarea.insert(tk.END, password + "\n\n")
+
+    # Deshabilitar la escritura en el Text widget
+    textarea.configure(state=tk.DISABLED)
+
+    derechos = "©lruizap"
+    label_derechos = CTkLabel(
+        ventana, bg_color=c_negro, text=derechos, font=("Arial", 12))
+    label_derechos.grid(row=2, columnspan=2, padx=0, pady=10)
+
+    # Logo de la ventana
+    ventana.iconbitmap(logo_ico)
+
+    # Fin ventana
+    ventana.mainloop()
+
 
 """ // App // """
 
@@ -64,7 +117,11 @@ mayusculas.grid(column=1, row=3, padx=4, pady=6)
 
 # Botón
 bt_gen = CTkButton(frame, font=('Arial', 12), border_color=c_amarillo,
-                   fg_color=c_negro, hover_color="#F2A405", corner_radius=12, border_width=2, text='Generar Contraseñas', height=35)
+                   fg_color=c_negro, hover_color="#F2A405", corner_radius=12, border_width=2, text='Generar Contraseñas', height=35,
+                   command=lambda: PG_App(length=int(longitud.get()),
+                                                 symbols=simbolos.get(),
+                                                 uppercase=mayusculas.get(),
+                                                 quantity=int(cantidad.get())))
 bt_gen.grid(columnspan=2, row=4, padx=4, pady=18)
 
 derechos = "©lruizap"
