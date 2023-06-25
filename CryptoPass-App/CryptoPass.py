@@ -31,15 +31,14 @@ root.rowconfigure(0, weight=1)
 """ // Imagenes // """
 
 logo = CTkImage(light_image=Image.open("./images/key-fhd.png"),
-                dark_image=Image.open("./images/key-fhd.png"))
+                dark_image=Image.open("./images/key-fhd.png"), size=(128, 128))
 # Redimensionar la imagen a un factor de 0.5 (la mitad del tamaño original)
-logo_redimensionada = logo.subsample(15, 15)
 logo_ico = './images/key-fhd.ico'
 
 """ // Elementos de la app // """
 
 # Crear el label para la imagen
-label_imagen = CTkLabel(frame, text='', image=logo_redimensionada)
+label_imagen = CTkLabel(frame, text='', image=logo)
 label_imagen.grid(row=0, column=0, padx=0, pady=5)
 
 # Crear el label para el texto
