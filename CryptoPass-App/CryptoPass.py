@@ -1,4 +1,7 @@
-from passwordGenerator import passwordGenerator
+import secrets
+import string
+import os
+import sys
 from customtkinter import CTk, CTkFrame, CTkEntry, CTkLabel, CTkButton, CTkCheckBox, CTkImage
 from PIL import Image
 import tkinter as tk
@@ -10,6 +13,25 @@ c_amarillo = "#F6BB43"
 c_azul = "#427EF6"
 
 """"// Funciones // """
+
+
+def passwordGenerator(length: int, symbols: bool, uppercase: bool):
+    combination = string.ascii_lowercase + string.digits
+
+    if symbols:
+        combination += string.punctuation
+
+    if uppercase:
+        combination += string.ascii_uppercase
+
+    combination_length = len(combination)
+
+    new_password = ""
+
+    for _ in range(length):
+        new_password += combination[secrets.randbelow(combination_length)]
+
+    return new_password
 
 
 def PG_App(length: int, symbols: bool, uppercase: bool, quantity: int):
