@@ -24,14 +24,6 @@ def PG_App(length: int, symbols: bool, uppercase: bool, quantity: int):
                       border_color="#427EF6", border_width=2)
     frame2.grid(column=0, row=0, sticky='nsew', padx=50, pady=50)
 
-    # frame2.columnconfigure(0, weight=1)
-    # frame2.rowconfigure(0, weight=1)
-
-    # # Dentro de la ventana principal configuramos la posición del frame
-    # ventana.columnconfigure(0, weight=1)
-    # ventana.rowconfigure(0, weight=1)
-
-    # Crear un Text widget con scrollbar
     scrollbar = tk.Scrollbar(frame2)
     textarea = tk.Text(frame2, font=('Arial', 12), yscrollcommand=scrollbar.set, fg="white", bg=c_negro,
                        relief="solid", borderwidth=2, highlightthickness=2, padx=4, pady=4)
@@ -59,6 +51,9 @@ def PG_App(length: int, symbols: bool, uppercase: bool, quantity: int):
 
     # Fin ventana
     ventana.mainloop()
+
+
+#! Pestaña principal
 
 
 """ // App // """
@@ -118,10 +113,10 @@ mayusculas.grid(column=1, row=3, padx=4, pady=6)
 # Botón
 bt_gen = CTkButton(frame, font=('Arial', 12), border_color=c_amarillo,
                    fg_color=c_negro, hover_color="#F2A405", corner_radius=12, border_width=2, text='Generar Contraseñas', height=35,
-                   command=lambda: PG_App(length=int(longitud.get()),
+                   command=lambda: PG_App(length=int(longitud.get().strip()),
                                                  symbols=simbolos.get(),
                                                  uppercase=mayusculas.get(),
-                                                 quantity=int(cantidad.get())))
+                                                 quantity=int(cantidad.get().strip())))
 bt_gen.grid(columnspan=2, row=4, padx=4, pady=18)
 
 derechos = "©lruizap"
