@@ -14,10 +14,10 @@ Este código nos mostrará como crear un generador de contraseñas seguras con p
 
 ## Índice
 
-- 1. Primeros Pasos
-- 2. Codificación
-- 3. Aplicación de escritorio
-- 4. De `.py` a `.exe`
+- Primeros Pasos
+- Codificación
+- Aplicación de escritorio
+- De `.py` a `.exe`
 
 ---
 
