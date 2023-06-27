@@ -100,10 +100,10 @@ root.rowconfigure(0, weight=1)
 
 """ // Imagenes // """
 
-logo = CTkImage(light_image=Image.open("./images/key-fhd.png"),
-                dark_image=Image.open("./images/key-fhd.png"), size=(128, 128))
+logo = CTkImage(light_image=Image.open("CryptoPass-App\images\key-fhd.png"),
+                dark_image=Image.open("CryptoPass-App\images\key-fhd.png"), size=(128, 128))
 # Redimensionar la imagen a un factor de 0.5 (la mitad del tamaño original)
-logo_ico = './images/key-fhd.ico'
+logo_ico = 'CryptoPass-App\images\key-fhd.ico'
 
 """ // Elementos de la app // """
 
